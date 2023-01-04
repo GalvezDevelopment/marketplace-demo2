@@ -1,5 +1,11 @@
 .header {
+  display: flex;
+
   &__logo {
     width: 176px;
+  }
+
+  &__separator {
+    flex: 1;
   }
 }
