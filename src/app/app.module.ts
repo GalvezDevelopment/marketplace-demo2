@@ -7,6 +7,8 @@ import { CoreModule } from "./core/core.module";
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import './core/utils/deep-copy';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 const routes: Routes = [
   {
@@ -24,7 +26,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
