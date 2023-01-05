@@ -1,4 +1,5 @@
-<p>products-list works!</p>
-<div>
-  {{ productList$ | async | json }}
-</div>
+<ng-container *ngFor="let product of productList$ | async">
+  <div class="item">
+    <app-product-showcase [product]="product"></app-product-showcase>
+  </div>
+</ng-container>

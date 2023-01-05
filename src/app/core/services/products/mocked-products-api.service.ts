@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductsService } from "./products.service";
-import { Observable, of } from "rxjs";
+import { delay, Observable, of } from "rxjs";
 import { ApiResponse } from "../../models/api-response";
 import { Product } from "../../models/product";
 
@@ -19,7 +19,7 @@ export class MockedProductsApiService implements ProductsService {
   ];
 
   getProducts(): Observable<ApiResponse<Product[]>> {
-    return of({ success: true, data: this.products });
+    return of({ success: true, data: this.products }).pipe(delay(2000));
   }
 
   purchase(products: Product[]): Observable<ApiResponse<[]>> {
