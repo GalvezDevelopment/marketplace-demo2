@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { ProductShowcaseComponent } from './components/product-showcase/product-showcase.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ProductShowcaseComponent
+  ],
   imports: [
     CommonModule,
     MatIconModule,
@@ -14,7 +17,8 @@ import { MatButtonModule } from "@angular/material/button";
   ],
   exports: [
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ProductShowcaseComponent
   ]
 })
 export class SharedModule { }
