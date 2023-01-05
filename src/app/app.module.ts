@@ -9,6 +9,12 @@ import { HttpClientModule } from "@angular/common/http";
 import './core/utils/deep-copy';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { productReducer } from "./state/reducers/product.reducer";
+import { walletReducer } from "./state/reducers/wallet.reducer";
+import { basketReducer } from "./state/reducers/basket.reducer";
+import { ProductEffects } from "./state/effects/product.effects";
+import { WalletEffects } from "./state/effects/wallet.effects";
+import { loaderReducer } from "./state/reducers/loader.reducer";
 
 const routes: Routes = [
   {
@@ -27,14 +33,16 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     CoreModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([])
+    StoreModule.forRoot({
+      loaders: loaderReducer,
+      products: productReducer,
+      wallet: walletReducer,
+      basket: basketReducer
+    }),
+    EffectsModule.forRoot([ProductEffects, WalletEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {
-    console.log({}.clone());
-  }
 }
