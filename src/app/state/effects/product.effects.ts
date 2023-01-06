@@ -6,6 +6,7 @@ import { map, switchMap, tap } from "rxjs";
 import { ApiResponse } from "../../core/models/api-response";
 import { Product } from "../../core/models/product";
 import { ProductsApiService } from "../../core/services/products/products-api.service";
+import { loaderActions } from "../actions/loader.actions";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,9 @@ import { ProductsApiService } from "../../core/services/products/products-api.se
 export class ProductEffects {
   productList$ = createEffect(() => this.actions$.pipe(
     ofType(productActions.loadList),
+    tap(() => this.store.dispatch(loaderActions.add({ action: productActions.loadList }))),
     switchMap(() => this.productSrv.getProducts().pipe(
+      tap(() => this.store.dispatch(loaderActions.remove({ action: productActions.loadList }))),
       map((response: ApiResponse<Product[]>) => {
         return { type: productActions.loadedList.type, products: response.data };
       })

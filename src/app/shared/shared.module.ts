@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { ProductShowcaseComponent } from './components/product-showcase/product-showcase.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
 @NgModule({
   declarations: [
-    ProductShowcaseComponent
+    ProductShowcaseComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { ProductShowcaseComponent } from './components/product-showcase/product-
   exports: [
     MatIconModule,
     MatButtonModule,
-    ProductShowcaseComponent
+    ProductShowcaseComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

@@ -15,6 +15,7 @@ import { basketReducer } from "./state/reducers/basket.reducer";
 import { ProductEffects } from "./state/effects/product.effects";
 import { WalletEffects } from "./state/effects/wallet.effects";
 import { loaderReducer } from "./state/reducers/loader.reducer";
+import { SharedModule } from "./shared/shared.module";
 
 const routes: Routes = [
   {
@@ -39,7 +40,8 @@ const routes: Routes = [
       wallet: walletReducer,
       basket: basketReducer
     }),
-    EffectsModule.forRoot([ProductEffects, WalletEffects])
+    EffectsModule.forRoot([ProductEffects, WalletEffects]),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
