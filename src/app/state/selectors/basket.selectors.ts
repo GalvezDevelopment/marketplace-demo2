@@ -6,3 +6,7 @@ const featureSelector = createFeatureSelector<{ basket: Product[] }>('basket');
 export const selectInBasketProducts = createSelector(featureSelector, state => {
   return state.basket;
 });
+
+export const selectBasketCount = createSelector(featureSelector, state => {
+  return state.basket.length;
+});

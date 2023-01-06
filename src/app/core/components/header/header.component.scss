@@ -9,3 +9,8 @@
     flex: 1;
   }
 }
+
+a[mat-icon-button].header__basket ::ng-deep span.mat-badge-content {
+    right: -2px;
+    top: 5px;
+}

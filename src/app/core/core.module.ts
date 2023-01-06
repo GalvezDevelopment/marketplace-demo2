@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { SharedModule } from "../shared/shared.module";
+import { MatBadgeModule } from "@angular/material/badge";
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from "../shared/shared.module";
   imports: [
     CommonModule,
     SharedModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatBadgeModule
   ],
   exports: [
     HeaderComponent
