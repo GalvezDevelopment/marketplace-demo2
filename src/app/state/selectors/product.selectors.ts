@@ -3,6 +3,6 @@ import { Product } from "../../core/models/product";
 
 const featureSelector = createFeatureSelector<{ products: Product[] }>('products');
 
-export const selectProducts = createSelector(featureSelector, state => {
+export const selectAllProducts = createSelector(featureSelector, state => {
   return state.products;
 });

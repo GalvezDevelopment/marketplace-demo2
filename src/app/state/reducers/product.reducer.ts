@@ -12,5 +12,17 @@ export const productReducer = createReducer(
   initialState,
   on(productActions.loadedList, (state, { products }) => {
     return { ...state, products };
+  }),
+  on(productActions.updateList, (state, { products }) => {
+    const clonedProducts = state.products.clone() as Product[];
+    const clonedBasketProducts = products.clone() as Product[];
+    clonedBasketProducts.forEach(p => {
+      const productIndex = state.products.findIndex(existingProduct => existingProduct.sku === p.sku);
+      if (productIndex > -1) {
+        clonedProducts[productIndex] = p.clone() as Product;
+      }
+    });
+    console.log(clonedProducts);
+    return { ...state, products: clonedProducts };
   })
 );

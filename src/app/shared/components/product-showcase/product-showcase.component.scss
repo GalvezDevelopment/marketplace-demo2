@@ -1,40 +1,45 @@
 @use '@angular/material' as mat;
 @import 'src/app/styles/palette';
 
-:host {
+.product {
   display: grid;
   width: 200px;
 
-  .product {
-    &__img-container {
-      margin: auto;
+  &__img-container {
+    margin: auto;
 
-      img {
-        border-radius: 5px;
-      }
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  &__info {
+    text-align: center;
+
+    & > .product__title {
+      font-size: 14px;
+      font-weight: bold;
+      color: mat.get-color-from-palette($md-marketplace-primary, 700);
     }
 
-    &__info {
-      text-align: center;
-
-      & > section:first-child {
-        font-size: 14px;
-        font-weight: bold;
-        color: mat.get-color-from-palette($md-marketplace-primary, 700);
-      }
-
-      & > section:last-child {
-        font-size: 12px;
-        color: mat.get-color-from-palette($md-marketplace-secondary, 300);
-        letter-spacing: 0.5px;
-      }
+    & > .product__subtitle {
+      font-size: 12px;
+      color: mat.get-color-from-palette($md-marketplace-secondary, 300);
+      letter-spacing: 0.5px;
     }
 
-    &__actions {
-      padding-top: 15px;
-      button {
-        width: 100%;
-      }
+    & > .product__price {
+      font-size: 18px;
+      color: mat.get-color-from-palette($md-marketplace-secondary, 400);
+      padding-top: 10px;
+    }
+  }
+
+  &__actions {
+    padding-top: 15px;
+
+    button {
+      width: 100%;
     }
   }
 }

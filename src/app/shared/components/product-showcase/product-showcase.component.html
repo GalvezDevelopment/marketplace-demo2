@@ -1,10 +1,13 @@
-<div class="product__img-container">
-  <img src="https://picsum.photos/180/280?grayscale" alt="Placeholder">
-</div>
-<div class="product__info">
-  <section class="product__title">{{ product?.title }}</section>
-  <section class="product__subtitle">{{ product?.brand }}</section>
-</div>
-<div class="product__actions">
-  <button mat-flat-button color="primary">ADD TO BASKET</button>
+<div class="product">
+  <div class="product__img-container">
+    <img src="https://picsum.photos/180/280?grayscale" alt="Placeholder">
+  </div>
+  <div class="product__info">
+    <section class="product__title">{{ product?.title }}</section>
+    <section class="product__subtitle">{{ product?.brand }}</section>
+    <section class="product__price">${{ product?.price }}</section>
+  </div>
+  <div class="product__actions">
+    <button mat-flat-button color="primary" (click)="select($event)" [disabled]="!product?.stock">ADD TO BASKET {{ product?.stock }}</button>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import { ProductEffects } from "./state/effects/product.effects";
 import { WalletEffects } from "./state/effects/wallet.effects";
 import { loaderReducer } from "./state/reducers/loader.reducer";
 import { SharedModule } from "./shared/shared.module";
+import { BasketEffects } from "./state/effects/basket.effects";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const routes: Routes = [
   {
@@ -40,8 +42,9 @@ const routes: Routes = [
       wallet: walletReducer,
       basket: basketReducer
     }),
-    EffectsModule.forRoot([ProductEffects, WalletEffects]),
-    SharedModule
+    EffectsModule.forRoot([ProductEffects, WalletEffects, BasketEffects]),
+    SharedModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
   bootstrap: [AppComponent]
