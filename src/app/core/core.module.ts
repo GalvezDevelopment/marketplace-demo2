@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { SharedModule } from "../shared/shared.module";
 import { MatBadgeModule } from "@angular/material/badge";
+import { RouterModule } from "@angular/router";
 
 
 
@@ -15,7 +16,8 @@ import { MatBadgeModule } from "@angular/material/badge";
     CommonModule,
     SharedModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent

@@ -2,7 +2,6 @@
 @import 'src/app/styles/palette';
 
 .product {
-  display: grid;
   width: 200px;
 
   &__img-container {
@@ -40,6 +39,29 @@
 
     button {
       width: 100%;
+    }
+  }
+
+  &.basket {
+    display: flex;
+    width: 100%;
+
+    img {
+      width: 90px;
+    }
+
+    .product__info {
+      flex: 1;
+      padding: 10px 20px;
+      text-align: left;
+    }
+
+    .product__actions > button {
+      height: 100%;
+
+      & > mat-icon {
+        margin: 0;
+      }
     }
   }
 }

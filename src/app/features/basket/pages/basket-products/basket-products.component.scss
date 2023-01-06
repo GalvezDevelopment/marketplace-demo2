@@ -1,0 +1,54 @@
+@use '@angular/material' as mat;
+@import 'src/app/styles/palette';
+
+$icon-size: 10rem;
+
+.basket-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__products-list {
+    flex: 1;
+    width: 40%;
+    padding-bottom: 20px;
+    margin: 0 auto;
+  }
+
+  &__products-list + &__products-total {
+    text-align: center;
+
+    button {
+      width: 10%;
+    }
+  }
+
+  &--error {
+    display: block;
+    font-weight: bold;
+    color: mat.get-color-from-palette($md-marketplace-secondary, A400);
+    margin: 10px;
+  }
+
+  &__empty-basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+
+    &-icon {
+      font-size: $icon-size;
+      width: $icon-size;
+      height: $icon-size;
+      color: mat.get-color-from-palette($md-marketplace-secondary, 50);
+      transform: rotate(45deg);
+    }
+
+    &-label--large {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: mat.get-color-from-palette($md-marketplace-secondary, 400);
+    }
+  }
+}

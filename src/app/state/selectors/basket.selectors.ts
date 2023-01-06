@@ -10,3 +10,7 @@ export const selectInBasketProducts = createSelector(featureSelector, state => {
 export const selectBasketCount = createSelector(featureSelector, state => {
   return state.basket.length;
 });
+
+export const selectBasketTotal = createSelector(featureSelector, state => {
+  return state.basket.reduce((prev, curr) => prev + curr.price, 0);
+});

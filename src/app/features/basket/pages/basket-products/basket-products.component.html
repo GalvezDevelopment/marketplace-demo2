@@ -1,0 +1,20 @@
+<div class="basket-container">
+  <div class="basket-container__products-list" *ngIf="basketCount$ | async; else emptyBasket">
+    <ng-container *ngFor="let product of basketProducts$ | async;">
+      <div class="item">
+        <app-product-showcase [product]="product" [view]="PRODUCT_VIEWS.basket" (remove)="removeFromBasket($event)"></app-product-showcase>
+      </div>
+    </ng-container>
+  </div>
+  <div class="basket-container__products-total" *ngIf="basketCount$ | async">
+    <a mat-flat-button color="primary" routerLink="checkout" [disabled]="allowCheckout$ | async">PAY ${{ basketTotal$ | async }}</a>
+    <small *ngIf="allowCheckout$ | async" class="basket-container--error">Insufficient funds!</small>
+  </div>
+  <ng-template #emptyBasket>
+    <div class="basket-container__empty-basket">
+      <mat-icon class="basket-container__empty-basket-icon">shopping_basket</mat-icon>
+      <p class="basket-container__empty-basket-label--large">No products added yet</p>
+      <a routerLink="/">Go to the products page</a>
+    </div>
+  </ng-template>
+</div>
