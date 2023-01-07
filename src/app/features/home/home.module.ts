@@ -11,13 +11,17 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        path: 'basket',
+        loadChildren: () => import('../../features/basket/basket.module').then(m => m.BasketModule)
+      },
+      {
+        path: 'checkout',
+        loadChildren: () => import('../../features/checkout/checkout.module').then(m => m.CheckoutModule)
+      },
+      {
         path: '',
         component: ProductsListComponent
       },
-      {
-        path: 'basket',
-        loadChildren: () => import('../../features/basket/basket.module').then(m => m.BasketModule)
-      }
     ]
   }
 ];
