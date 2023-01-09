@@ -21,6 +21,6 @@ export class ProductsListComponent implements OnInit {
   }
 
   addToBasket(product: Product): void {
-    this.store.dispatch(basketActions.addProduct({ product: product }));
+    this.store.dispatch(basketActions.add({ product: product }));
   }
 }

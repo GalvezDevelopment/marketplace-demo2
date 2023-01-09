@@ -8,5 +8,5 @@ export abstract class ProductsService {
   abstract readonly ENDPOINT: string;
 
   abstract getProducts(): Observable<ApiResponse<Product[]>>;
-  abstract purchase(products: any[]): Observable<ApiResponse<[]>>;
+  abstract purchase(productsSkus: string[]): Observable<ApiResponse<[]>>;
 }

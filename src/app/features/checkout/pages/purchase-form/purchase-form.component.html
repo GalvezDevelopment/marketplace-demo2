@@ -31,6 +31,6 @@
     <p>Total: <span>${{ productsTotal$ | async }}</span></p>
   </div>
   <div class="form-container__actions">
-    <a mat-flat-button color="primary">Pay</a>
+    <a mat-flat-button color="primary" (click)="pay()">Pay</a>
   </div>
 </form>

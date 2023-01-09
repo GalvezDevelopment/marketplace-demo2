@@ -1,8 +1,12 @@
-import { createAction, props } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { Product } from "../../core/models/product";
 
-export namespace basketActions {
-  export const load = createAction('[Basket] Load');
-  export const addProduct = createAction('[Basket] Add product', props<{ product: Product }>());
-  export const removeProduct = createAction('[Basket] Remove product', props<{ productSku: string }>());
-}
+export const basketActions = createActionGroup({
+  source: 'Basket',
+  events: {
+    'Load': emptyProps(),
+    'Add': props<{ product: Product }>(),
+    'Remove product': props<{ productSku: string }>(),
+    'empty': emptyProps()
+  }
+});

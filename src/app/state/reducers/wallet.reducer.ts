@@ -11,5 +11,8 @@ export const walletReducer = createReducer(
   initialState,
   on(walletActions.loaded, (state, { amount }) => {
     return { ...state, amount };
+  }),
+  on(walletActions.withdraw, (state, {amount}) => {
+    return { ...state, amount: state.amount - amount}
   })
 )

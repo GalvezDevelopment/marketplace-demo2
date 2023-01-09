@@ -22,16 +22,16 @@ export class MockedProductsApiService implements ProductsService {
     return of({ success: true, data: this.products }).pipe(delay(2000));
   }
 
-  purchase(products: Product[]): Observable<ApiResponse<[]>> {
-    const clonedProducts = products.clone() as Product[];
-    products.forEach(product => {
-      const productFound = clonedProducts.find(p => p.sku === product.sku);
+  purchase(products: string[]): Observable<ApiResponse<[]>> {
+    const clonedProducts = this.products.clone() as Product[];
+    products.forEach(sku => {
+      const productFound = clonedProducts.find(p => p.sku === sku);
       if (productFound) {
         productFound.stock -= 1;
       }
     });
     this.products = clonedProducts;
-    return of({ success: true, data: [] });
+    return of({ success: true, data: [] }).pipe(delay(2000));
   }
 
 }

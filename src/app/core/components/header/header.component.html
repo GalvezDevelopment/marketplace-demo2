@@ -3,7 +3,7 @@
   <span class="header__separator"></span>
   <button mat-button>
     <mat-icon>wallet</mat-icon>
-    ${{ wallet$ | async }}
+    {{ wallet$ | async }}
   </button>
   <a mat-icon-button class="header__basket" [matBadge]="basketCounter$ | async" matBadgeColor="primary"
      matBadgeSize="small" routerLink="/basket">

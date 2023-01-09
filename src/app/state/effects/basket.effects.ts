@@ -10,7 +10,7 @@ import { Product } from "../../core/models/product";
 @Injectable()
 export class BasketEffects {
   addProductBasket$ = createEffect(() => this.actions$.pipe(
-    ofType(basketActions.addProduct),
+    ofType(basketActions.add),
     switchMap(() => this.store.select(selectInBasketProducts).pipe(
       map((basket: Product[]) => {
         return { type: productActions.updateList.type, products: basket };

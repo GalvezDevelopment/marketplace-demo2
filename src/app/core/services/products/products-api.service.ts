@@ -21,7 +21,7 @@ export class ProductsApiService implements ProductsService {
     return this.httpClientSrv.get<ApiResponse<Product[]>>(this.ENDPOINT);
   }
 
-  purchase(products: any[]): Observable<ApiResponse<[]>> {
-    return this.httpClientSrv.post<ApiResponse<[]>>(this.ENDPOINT, products);
+  purchase(productsSkus: string[]): Observable<ApiResponse<[]>> {
+    return this.httpClientSrv.post<ApiResponse<[]>>(this.ENDPOINT, productsSkus);
   }
 }

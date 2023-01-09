@@ -7,18 +7,32 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { SharedModule } from "../../shared/shared.module";
 import { PurchaseResultComponent } from './components/purchase-result/purchase-result.component';
+import { CheckoutComponent } from './checkout.component';
+import { CheckoutGuard } from "../../core/guards/checkout/checkout-guard.service";
 
 const routes: Routes = [
   {
     path: '',
-    component: PurchaseFormComponent
+    component: CheckoutComponent,
+    children: [
+      {
+        path: 'purchase',
+        component: PurchaseResultComponent
+      },
+      {
+        path: '',
+        component: PurchaseFormComponent
+      }
+    ],
+    canActivate: [CheckoutGuard]
   }
 ]
 
 @NgModule({
   declarations: [
     PurchaseFormComponent,
-    PurchaseResultComponent
+    PurchaseResultComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule,

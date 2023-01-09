@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { selectBasketTotal } from "../../../../state/selectors/basket.selectors";
+import { productActions } from "../../../../state/actions/product.actions";
 
 @Component({
   selector: 'app-purchase-form',
@@ -25,5 +26,9 @@ export class PurchaseFormComponent {
   });
 
   constructor(private readonly formBuilder: FormBuilder, private readonly store: Store) {
+  }
+
+  pay(): void {
+    this.store.dispatch(productActions.purchase());
   }
 }

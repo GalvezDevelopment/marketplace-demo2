@@ -18,6 +18,7 @@ import { loaderReducer } from "./state/reducers/loader.reducer";
 import { SharedModule } from "./shared/shared.module";
 import { BasketEffects } from "./state/effects/basket.effects";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
     }),
     EffectsModule.forRoot([ProductEffects, WalletEffects, BasketEffects]),
     SharedModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

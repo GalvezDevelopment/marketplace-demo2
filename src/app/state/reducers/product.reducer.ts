@@ -22,7 +22,6 @@ export const productReducer = createReducer(
         clonedProducts[productIndex] = p.clone() as Product;
       }
     });
-    console.log(clonedProducts);
     return { ...state, products: clonedProducts };
   })
 );

@@ -14,3 +14,11 @@ export const selectBasketCount = createSelector(featureSelector, state => {
 export const selectBasketTotal = createSelector(featureSelector, state => {
   return state.basket.reduce((prev, curr) => prev + curr.price, 0);
 });
+
+export const selectInBasketSkusAndTotal = createSelector(
+  selectInBasketProducts,
+  selectBasketTotal,
+  (products: Product[], total: number) => {
+    return { skus: products.map(p => p.sku), total }
+  }
+)
