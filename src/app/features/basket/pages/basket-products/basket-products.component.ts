@@ -23,7 +23,7 @@ export class BasketProductsComponent {
   basketTotal$ = this.store.select(selectBasketTotal);
   allowCheckout$ = this.store.select(selectWalletVsBasket).pipe(map(state => !state));
 
-  constructor(private readonly store: Store) {
+  constructor(public readonly store: Store) {
   }
 
   removeFromBasket({ sku }: Product): void {
