@@ -22,13 +22,15 @@ export class PurchaseFormComponent {
       city: this.formBuilder.control('', Validators.required),
       state: this.formBuilder.control('', Validators.required)
     }),
-    email: this.formBuilder.control('', Validators.required)
+    email: this.formBuilder.control('', [Validators.required, Validators.email])
   });
 
-  constructor(private readonly formBuilder: FormBuilder, private readonly store: Store) {
+  constructor(private readonly formBuilder: FormBuilder, public readonly store: Store) {
   }
 
   pay(): void {
-    this.store.dispatch(productActions.purchase());
+    if (this.purchaseForm.valid) {
+      this.store.dispatch(productActions.purchase());
+    }
   }
 }

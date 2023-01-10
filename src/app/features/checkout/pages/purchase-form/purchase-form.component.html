@@ -1,4 +1,4 @@
-<form [formGroup]="purchaseForm" class="form-container">
+<form [formGroup]="purchaseForm" class="form-container" (submit)="pay()">
   <div class="form-container__full-name" formGroupName="name">
     <mat-form-field>
       <mat-label>First</mat-label>
@@ -31,6 +31,6 @@
     <p>Total: <span>${{ productsTotal$ | async }}</span></p>
   </div>
   <div class="form-container__actions">
-    <a mat-flat-button color="primary" (click)="pay()">Pay</a>
+    <button type="submit" data-cy="payBtn" mat-flat-button color="primary">Pay</button>
   </div>
 </form>
