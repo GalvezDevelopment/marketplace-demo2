@@ -1,16 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductShowcaseComponent } from './product-showcase.component';
-import { TestScheduler } from "rxjs/testing";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { Product } from "../../../core/models/product";
 import { By } from "@angular/platform-browser";
 import { ProductViews } from "../../../core/enums/product-views";
-
-const testScheduler = new TestScheduler((actual, expected) => {
-  expect(actual).toEqual(expected);
-});
 
 describe('ProductShowcaseComponent', () => {
   let component: ProductShowcaseComponent;
