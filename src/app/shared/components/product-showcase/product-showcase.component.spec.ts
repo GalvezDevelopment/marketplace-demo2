@@ -56,15 +56,15 @@ describe('ProductShowcaseComponent', () => {
   it('should hide the "Add to Basket" button when the view specified is Basket', () => {
     component.view = ProductViews.basket;
     fixture.detectChanges();
-    const addToBasketBtn = fixture.debugElement.query(By.css('[data-cy=addProductBasket]'));
-    const removeFromBasketBtn = fixture.debugElement.query(By.css('[data-cy=removeProductBasket]'));
+    const addToBasketBtn = fixture.debugElement.query(By.css('[data-cy=add-product]'));
+    const removeFromBasketBtn = fixture.debugElement.query(By.css('[data-cy=remove-product]'));
     expect(removeFromBasketBtn).toBeTruthy();
     expect(addToBasketBtn).not.toBeTruthy();
     expect(component.view).toEqual(ProductViews.basket);
   });
 
   it('should emit the product when clicking on it on default view', () => {
-    const addToBasketBtn = fixture.debugElement.query(By.css('[data-cy=addProductBasket]'));
+    const addToBasketBtn = fixture.debugElement.query(By.css('[data-cy=add-product]'));
     spyOn(component, 'select');
     spyOn(component.click, 'emit');
     addToBasketBtn.triggerEventHandler('click');

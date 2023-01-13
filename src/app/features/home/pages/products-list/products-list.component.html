@@ -1,5 +1,5 @@
 <ng-container *ngFor="let product of productList$ | async">
   <div class="item">
-    <app-product-showcase data-cy="product-item" [product]="product" (click)="addToBasket($event)"></app-product-showcase>
+    <app-product-showcase [product]="product" (click)="addToBasket($event)"></app-product-showcase>
   </div>
 </ng-container>

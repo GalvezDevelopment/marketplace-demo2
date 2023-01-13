@@ -51,4 +51,14 @@ $icon-size: 10rem;
       color: mat.get-color-from-palette($md-marketplace-secondary, 400);
     }
   }
+
+  @media (max-width: 768px) {
+    &__products-list {
+      width: 80%;
+    }
+
+    &__products-total > #payBtn {
+      width: 20%;
+    }
+  }
 }

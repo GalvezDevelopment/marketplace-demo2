@@ -1,4 +1,4 @@
-<div class="product" [ngClass]="{ basket: view === PRODUCT_VIEWS.basket }">
+<div class="product" [ngClass]="{ basket: view === PRODUCT_VIEWS.basket }" data-cy="product-item">
   <div class="product__img-container">
     <img src="https://picsum.photos/180/280?grayscale" alt="Placeholder">
   </div>
@@ -8,10 +8,10 @@
     <section class="product__price">${{ product?.price }}</section>
   </div>
   <div class="product__actions">
-    <button data-cy="addProductBasket" *ngIf="view === PRODUCT_VIEWS.default; else removeBtn" mat-flat-button color="primary"
+    <button data-cy="add-product" *ngIf="view === PRODUCT_VIEWS.default; else removeBtn" mat-flat-button color="primary"
             (click)="select($event)" [disabled]="!product?.stock">ADD TO BASKET</button>
     <ng-template #removeBtn>
-      <button data-cy="removeProductBasket" mat-flat-button color="accent" (click)="removeFromBasket()">
+      <button data-cy="remove-product" mat-flat-button color="accent" (click)="removeFromBasket()">
         <mat-icon>delete</mat-icon>
       </button>
     </ng-template>
