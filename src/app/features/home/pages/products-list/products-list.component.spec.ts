@@ -54,7 +54,7 @@ describe('ProductsListComponent', () => {
     testScheduler.run(({ cold, expectObservable }) => {
       const expected = cold('a', { a: [] });
       expectObservable(component.productList$).toEqual(expected);
-      const products = fixture.debugElement.queryAll(By.css('[data-cy]'));
+      const products = fixture.debugElement.queryAll(By.css('[data-cy=product-item]'));
       expect(products).toHaveSize(0);
     });
   });
@@ -66,7 +66,7 @@ describe('ProductsListComponent', () => {
       expectObservable(component.productList$).toEqual(expected);
       store.setState({ products: [mockProduct] });
       fixture.detectChanges();
-      const products = fixture.debugElement.queryAll(By.css('[data-cy]'));
+      const products = fixture.debugElement.queryAll(By.css('[data-cy=product-item]'));
       expect(products).toHaveSize(1);
     });
   });

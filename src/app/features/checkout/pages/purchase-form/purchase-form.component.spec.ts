@@ -4,7 +4,7 @@ import { PurchaseFormComponent } from './purchase-form.component';
 import { MockStore, provideMockStore } from "@ngrx/store/testing";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatButton, MatButtonModule } from "@angular/material/button";
+import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BasketState } from "../../../../state/reducers/basket.reducer";
