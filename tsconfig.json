@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "types": [
+      "jest",
+      "jasmine",
+      "node",
+      "@types/testing-library__jest-dom"
+    ],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -30,8 +36,8 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "include": ["src", "./cypress.config.ts"],
   "exclude": [
-    "./cypress.config.ts"
+    "cypress",
+    "cypress.config.ts"
   ]
 }
