@@ -8,6 +8,11 @@
   &__separator {
     flex: 1;
   }
+
+  &__username {
+    margin-left: 10px;
+    font-size: 0.6em;
+  }
 }
 
 a[mat-icon-button].header__basket ::ng-deep span.mat-badge-content {

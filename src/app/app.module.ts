@@ -7,6 +7,7 @@ import { CoreModule } from "./core/core.module";
 import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import './core/utils/deep-copy';
+import './core/utils/augments';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { productReducer } from "./state/reducers/product.reducer";

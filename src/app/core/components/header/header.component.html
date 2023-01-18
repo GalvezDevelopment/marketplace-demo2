@@ -10,3 +10,4 @@
     <mat-icon>shopping_basket</mat-icon>
   </a>
 </mat-toolbar>
+<small *ngIf="username$ | async as username" class="header__username">Logged in as {{username}}</small>

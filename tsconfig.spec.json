@@ -10,6 +10,7 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts",
-    "src/app/core/utils/deep-copy.ts"
+    "src/app/core/utils/deep-copy.ts",
+    "src/app/core/utils/augments.ts",
   ]
 }

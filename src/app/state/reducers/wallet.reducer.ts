@@ -5,10 +5,13 @@ export interface WalletState {
   amount: number;
 }
 
-const initialState: WalletState = { amount: 100 };
+const initialState: WalletState = { amount: 0 };
 
 export const walletReducer = createReducer(
   initialState,
+  on(walletActions.load, state => {
+    return { ...state };
+  }),
   on(walletActions.loaded, (state, { amount }) => {
     return { ...state, amount };
   }),
